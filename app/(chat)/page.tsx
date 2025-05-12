@@ -52,7 +52,6 @@ export default async function Page() {
           session={session}
           autoResume={false}
         />
-        <DataStreamHandler id={id} />
       </>
     );
   }
@@ -69,7 +68,6 @@ export default async function Page() {
         session={session}
         autoResume={false}
       />
-      <DataStreamHandler id={id} />
     </>
   );
 }
