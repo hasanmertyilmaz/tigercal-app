@@ -1,6 +1,3 @@
-# Projeyi zip halinde hazırlamak için temiz bir `page.tsx` dosyası oluşturuyoruz
-
-page_tsx_code = """
 import { cookies } from 'next/headers';
 import { Chat } from '@/components/chat';
 import { DEFAULT_CHAT_MODEL } from '@/lib/ai/models';
@@ -43,24 +40,3 @@ export default async function Page() {
     </main>
   );
 }
-"""
-
-from pathlib import Path
-import zipfile
-
-# Dosya yapısı oluşturuluyor
-base_path = Path("/mnt/data/tigercal_clean_page")
-file_path = base_path / "app" / "(chat)"
-file_path.mkdir(parents=True, exist_ok=True)
-
-# Dosyayı kaydet
-with open(file_path / "page.tsx", "w", encoding="utf-8") as f:
-    f.write(page_tsx_code.strip())
-
-# Zip dosyasını oluştur
-zip_path = Path("/mnt/data/tigercal_fixed_page.zip")
-with zipfile.ZipFile(zip_path, "w") as zipf:
-    for file in file_path.rglob("*"):
-        zipf.write(file, file.relative_to(base_path))
-
-zip_path
