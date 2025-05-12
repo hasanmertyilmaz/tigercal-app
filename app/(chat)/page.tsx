@@ -15,23 +15,24 @@ export default async function Page() {
 
   const id = generateUUID();
 
-  return (
-    <main className="max-w-2xl mx-auto px-4 py-8">
-      <h1 className="text-4xl font-bold text-center mb-2">🐯 TigerCal</h1>
-      <p className="text-center text-gray-500 mb-6">
-        Your AI-powered life coach. Ask anything, anytime.
-      </p>
+ return (
+  <main className="max-w-2xl mx-auto px-4 py-8">
+    <h1 className="text-4xl font-bold text-center mb-2">🐯 TigerCal</h1>
+    <p className="text-center text-gray-500 mb-6">
+      Your AI-powered life coach. Ask anything, anytime.
+    </p>
 
-      <Chat
-        id={id}
-        initialInput=""
-        session={session}
-        chatModel={DEFAULT_CHAT_MODEL}
-        showInSidebar={true}
-        streamComponent={DataStreamHandler}
-      />
-    </main>
-  );
+    <Chat
+      id={id}
+      initialInput=""
+      session={session}
+      chatModel={DEFAULT_CHAT_MODEL}
+      showInSidebar={true}
+      streamComponent={DataStreamHandler}
+    />
+  </main>
+);
+
 }
 
 
